@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+    nodejs:
+        build: .
+        container_name: vscode-nodejs
+        network_mode: bridge
+        #restart: unless-stopped
+        volumes:
+            - ../:/workspace:cached

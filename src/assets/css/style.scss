@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
+
+html *,
+body * {
+	font-size: 100%;
+}
+
+body {
+	font-size: 0.8em;
+	font-family: 'Fira Code', monospace;
+}
+
+table td {
+	vertical-align: top;
+}
+
+.tblAction,
+.tblCPUInfo,
+.tblMem {
+	margin: 0 auto;
+
+	.infoByte {
+		float: left;
+	}
+
+	.memWrapper {
+		overflow-y: auto;
+		height: 340px;
+		padding: 0 17px 0 0;
+	}
+}
+
+.memAddr,
+.memByte {
+	padding: 0 2px;
+}
+
+.PCAddr {
+	background-color: #81ffa0;
+}
+
+.StackPointerAddr {
+	background-color: #ff8484;
+}
+
+.AbsAddr {
+	background-color: #ddc289;
+}
+
+.RelAddr {
+	background-color: #7997eb;
+}
+
+.txtProgram {
+	width: 150px;
+	height: 140px;
+}
+
+.pointByte {
+	background-color: #aaaaaa;
+	cursor: pointer;
+}

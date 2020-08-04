@@ -1,0 +1,151 @@
+<html>
+	<head>
+		<title>NES Emulator</title>
+	</head>
+	<body>
+		<div id="NESEmulator" v-if="DEBUG != null">
+			<table class="tblAction">
+				<tr>
+					<td>
+						<button @click="loadProgram" :disabled="clockID != null">Load</button>
+						|
+						<button @click="start" :disabled="clockID != null">Start</button>
+						<button @click="stop" :disabled="clockID == null">Stop</button>
+						|
+						<button @click="reset">Reset</button>
+						<button @click="step" :disabled="clockID != null">Step</button>
+						|
+						<button @click="irq">Interrupt (irq)</button>
+						<button @click="nmi">Interrupt (nmi)</button>
+					</td>
+				</tr>
+			</table>
+			<hr />
+			<table class="tblCPUInfo">
+				<tr>
+					<th>Program</th>
+					<th>CPU Info</th>
+				</tr>
+				<tr>
+					<td>
+						<textarea class="txtProgram" v-model="userProgram" :disabled="clockID != null"></textarea>
+					</td>
+					<td>
+						<table>
+							<tr>
+								<td colspan="6">
+									<table>
+										<tr>
+											<td v-for="(flag, i) in DEBUG.CPUDebug.FLAGS" :key="i">
+												<b>{{ i }}:</b>
+												{{ flag }}
+											</td>
+											<td>
+												<b>OPCode:</b>
+												{{ displayByte(DEBUG.CPUDebug.Opcode) }}
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<th>Status Register:</th>
+								<td>{{ displayByte(DEBUG.CPUDebug.RegStatus) }}</td>
+
+								<th>Stack Pointer:</th>
+								<td class="StackPointerAddr">{{ displayByte(DEBUG.CPUDebug.StackPointer) }}</td>
+
+								<th></th>
+								<td></td>
+							</tr>
+							<tr>
+								<th>A Register:</th>
+								<td>{{ displayByte(DEBUG.CPUDebug.RegA) }}</td>
+
+								<th>Absolute ADDR:</th>
+								<td class="AbsAddr">{{ displayByte(DEBUG.CPUDebug.AddrAbs) }}</td>
+
+								<th></th>
+								<td></td>
+							</tr>
+							<tr>
+								<th>X Register:</th>
+								<td>{{ displayByte(DEBUG.CPUDebug.RegX) }}</td>
+
+								<th>Relative ADDR:</th>
+								<td class="RelAddr">{{ displayByte(DEBUG.CPUDebug.AddrRel) }}</td>
+
+								<th>&raquo;</th>
+								<td class="RelAddr">{{ displayByte(prtAddrRel) }}</td>
+							</tr>
+							<tr>
+								<th>Y Register:</th>
+								<td>{{ displayByte(DEBUG.CPUDebug.RegY) }}</td>
+
+								<th>Program Counter:</th>
+								<td class="PCAddr">{{ displayByte(DEBUG.CPUDebug.PC) }}</td>
+
+								<th></th>
+								<td></td>
+							</tr>
+							<tr>
+								<th>Fetch:</th>
+								<td>{{ displayByte(DEBUG.CPUDebug.Fetched) }}</td>
+
+								<th>Cycles:</th>
+								<td>{{ displayByte(DEBUG.CPUDebug.Cycles) }}</td>
+
+								<th>&raquo;</th>
+								<td>{{ DEBUG.ClockCount }}</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+			<hr />
+			<table class="tblMem">
+				<tr>
+					<th>
+						<div class="infoByte" id="infoByteProgram"></div>
+						<div>Program</div>
+					</th>
+					<th>
+						<div class="infoByte" id="infoByteRAM"></div>
+						<div>RAM</div>
+					</th>
+				</tr>
+				<tr>
+					<td>
+						<div class="memWrapper">
+							<table>
+								<tr v-for="(row, i) in PROTable" :key="i">
+									<td v-for="(info, j) in row" :key="j" :is="(j == 0) ? 'th' : 'td'">
+										<div :class="displayByteClass(j, info.addr)" :data-addr="info.addr" :data-byte="info.byte" data-src="Program">
+											{{ displayByte((j == 0) ? info.addr : info.byte, j) }}
+										</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</td>
+					<td>
+						<div class="memWrapper">
+							<table>
+								<tr v-for="(row, i) in RAMTable" :key="i">
+									<td v-for="(info, j) in row" :key="j" :is="(j == 0) ? 'th' : 'td'">
+										<div :class="displayByteClass(j, info.addr)" :data-addr="info.addr" :data-byte="info.byte" data-src="RAM">
+											{{ displayByte((j == 0) ? info.addr : info.byte, j) }}
+										</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<script src="./lib/jquery/jquery-3.5.1.min.js"></script>
+		<script src="./lib/vue/Vue.js"></script>
+		<script src="./lib/lodash/lodash.min.js"></script>
+	</body>
+</html>

@@ -1,0 +1,11 @@
+{
+	"workspaceFolder": "/workspace",
+	"extensions": ["sdras.vue-vscode-extensionpack", "dbaeumer.vscode-eslint", "eg2.vscode-npm-script", "GitHub.vscode-pull-request-github"],
+	"settings": {
+		"terminal.integrated.shell.linux": "/bin/bash"
+	},
+	"forwardPorts": [8000, 8080],
+	"remoteEnv": {},
+	"remoteUser": "node",
+	"postAttachCommand": "npm install --global gulp-cli"
+}

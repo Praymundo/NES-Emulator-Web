@@ -1,0 +1,9 @@
+{
+	"editor.fontFamily": "Fira Code, 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+	"editor.tabCompletion": "on",
+	"editor.formatOnSave": true,
+	"editor.formatOnPaste": false,
+	"editor.formatOnType": false,
+	"editor.fontLigatures": true,
+	"editor.defaultFormatter": "esbenp.prettier-vscode"
+}
