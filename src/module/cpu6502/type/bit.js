@@ -1,6 +1,8 @@
 export class Bit {
-	_Data = 0b0;
-	_Mask = 0b1;
+	constructor() {
+		this._Data = 0b0;
+		this._Mask = 0b1;
+	}
 	get() {
 		return this._Data;
 	}

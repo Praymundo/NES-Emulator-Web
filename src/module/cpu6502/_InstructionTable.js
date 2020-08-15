@@ -2,8 +2,9 @@ import { Instruction } from './type/instruction';
 import CPU from '../cpu6502';
 
 export class InstructionTable {
-	_Table = null;
-	constructor() {}
+	constructor() {
+		this._Table = null;
+	}
 	getInstruction(pByte) {
 		this._buildTable();
 		var tInfo = this._Table[pByte & 0xff];

@@ -1,6 +1,8 @@
 export class Cartridge {
-	_Data = {};
-	_Mask = 0xff;
+	constructor() {
+		this._Data = {};
+		this._Mask = 0xff;
+	}
 	checkCpuRead(pAddress) {
 		/// For the moment Cartridge will respond to every read / write that is not RAM
 		if (pAddress >= 0x2000) {
