@@ -55,9 +55,7 @@ export function getConfig() {
 						{
 							loader: 'babel-loader',
 							options: {
-								//cacheDirectory: true,
 								presets: ['@babel/preset-env'],
-								plugins: ['@babel/plugin-proposal-class-properties'],
 								compact: false
 							}
 						}

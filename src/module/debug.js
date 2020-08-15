@@ -18,9 +18,11 @@ import RAM, { RAM as cRAM } from './ram';
 import Cartridge, { Cartridge as cCartridge } from './cartridge';
 
 export class Debug {
-	global = null;
-	vm = null;
-	objDebug = {};
+	constructor() {
+		this.global = null;
+		this.vm = null;
+		this.objDebug = {};
+	}
 	init(global, vm) {
 		this.global = global;
 		this.vm = vm;
