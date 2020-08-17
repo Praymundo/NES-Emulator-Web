@@ -1,6 +1,6 @@
 {
 	"workspaceFolder": "/workspace",
-	"extensions": ["sdras.vue-vscode-extensionpack", "dbaeumer.vscode-eslint", "eg2.vscode-npm-script", "GitHub.vscode-pull-request-github"],
+	"extensions": ["sdras.vue-vscode-extensionpack", "dbaeumer.vscode-eslint", "eg2.vscode-npm-script", "GitHub.vscode-pull-request-github", "eamodio.gitlens", "bierner.emojisense"],
 	"settings": {
 		"terminal.integrated.shell.linux": "/bin/bash"
 	},

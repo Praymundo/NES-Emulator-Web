@@ -2,7 +2,7 @@
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.117.0/containers/javascript-node-14
 {
 	"name": "Node.js",
-	// ## Using docker-compose file
+	// Using docker-compose file
 	"dockerComposeFile": ["docker-compose.yml", "docker-compose.dev.yml"],
 	"service": "nodejs",
 	"workspaceFolder": "/workspace",
@@ -11,29 +11,13 @@
 	"settings": {
 		"terminal.integrated.shell.linux": "/bin/bash"
 	},
-	/*
-	Included in "sdras.vue-vscode-extensionpack":
-		- "esbenp.prettier-vscode"
-		- "tombonnike.vscode-status-bar-format-toggle"
-		- "alefragnani.Bookmarks"
-		- "xabikos.JavaScriptSnippets"
-		- "christian-kohler.npm-intellisense"
-		- "wmaurer.vscode-jumpy"
-		- "CoenraadS.bracket-pair-colorizer"
-	
-	Live session:
-		- "ms-vsliveshare.vsliveshare-pack"
-	
-	Gulp tasks:
-		- "nickdodd79.gulptasks"
-	*/
 	// Add the IDs of extensions you want installed when the container is created.
-	"extensions": ["sdras.vue-vscode-extensionpack", "dbaeumer.vscode-eslint", "eg2.vscode-npm-script", "GitHub.vscode-pull-request-github"],
+	"extensions": ["sdras.vue-vscode-extensionpack", "dbaeumer.vscode-eslint", "eg2.vscode-npm-script", "GitHub.vscode-pull-request-github", "eamodio.gitlens", "bierner.emojisense"],
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	"forwardPorts": [8000, 8080],
 	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "yarn install",
 	"postCreateCommand": "npm install --global gulp-cli",
 	// Uncomment to connect as a non-root user. See https://aka.ms/vscode-remote/containers/non-root.
 	"remoteUser": "node"
 }
+
