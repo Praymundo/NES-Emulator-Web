@@ -1,10 +1,20 @@
-version: '3'
+version: '3.7'
+
+volumes: 
+    node_modules:
+    dist:
 
 services:
     nodejs:
-        build: .
+        build:
+            dockerfile: custom.Dockerfile
+            context: .
         container_name: vscode-nodejs
         network_mode: bridge
+        init: true
         #restart: unless-stopped
         volumes:
-            - ../:/workspace:cached
+            - ../:/workspace
+            - node_modules:/workspace/node_modules
+            - dist:/workspace/dist
+        command: /bin/bash -c "npm install && npm run start"
