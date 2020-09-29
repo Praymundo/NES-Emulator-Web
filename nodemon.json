@@ -1,0 +1,13 @@
+{
+    "restartable": "rs",
+    "ignore": [
+        "dist"
+    ],
+    "verbose": true,
+    "watch": [
+        "gulpfile.assets/",
+        "src/",
+        "gulpfile.babel.js"
+    ],
+    "ext": "*"
+}
